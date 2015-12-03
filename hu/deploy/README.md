@@ -22,7 +22,7 @@ A Git egy "version control system" (VCS, magyarul verziókezelő rendszer), amit
 
 > **Megjegyzés** Ha már követted a korábbi telepítési utasításokat, ezt a pontot átugorhatod és kezdheted kialakítani a saját Git csomagtáradat!
 
-{% include "deploy/install_git.md" %}
+{% include "/deploy/install_git.md" %}
 
 ## Készítsünk Git repository-t
 
@@ -129,7 +129,7 @@ A forráskódod most már fent van a GitHubon. Menj és nézd meg! Láthatod hog
 
 > **Megjegyzés** Valószínűleg már létrehoztál egy PythonAnywhere fiókot korábban a telepítés során - ha így van, ezt nem kell újból megtenned.
 
-{% include "deploy/signup_pythonanywhere.md" %}
+{% include "/deploy/signup_pythonanywhere.md" %}
 
 ## Forráskód letöltése a PythonAnywhere-be
 
@@ -167,20 +167,22 @@ Ez majd betölti a forráskódod másolatát a PythonAnywhere-be. Ellenőrizhete
 
 Ugyanúgy, ahogy a saját gépeden csináltad, a PythonAnywhere-en is létrehozhatsz virtualenvet. Írd be a Bash konzolba:
 
-    $ cd my-first-blog
-    
-    $ virtualenv --python=python3.4 myvenv
-    Running virtualenv with interpreter /usr/bin/python3.4
-    [...]
-    Installing setuptools, pip...done.
-    
-    source myvenv/bin/activate
-    
-    (mvenv) $  pip install django whitenoise
-    Collecting django
-    [...]
-    Successfully installed django-1.8.2 whitenoise-2.0
-    
+```
+$ cd my-first-blog
+
+$ virtualenv --python=python3.4 myvenv
+Running virtualenv with interpreter /usr/bin/python3.4
+[...]
+Installing setuptools, pip...done.
+
+$ source myvenv/bin/activate
+
+(mvenv) $  pip install django whitenoise
+Collecting django
+[...]
+Successfully installed django-1.8.2 whitenoise-2.0
+```
+
 
 > **Megjegyzés** A `pip install` lépés eltarthat pár percig. Légy türelmes! De ha több mint 5 percig tart, akkor valószínűleg valami nincs rendben. Kérdezd meg a coachodat!
 
@@ -262,20 +264,20 @@ Kattints a "WSGI configuration file" linkre (a "Code" szekcióban az oldal tetej
 
 Törölj ki mindent, és cseréld ki valami ilyesmire:
 
-    python
-    import os
-    import sys
-    
-    path = '/home/<your-username>/my-first-blog'  # itt a saját felhasználónevedet használd!
-    if path not in sys.path:
-        sys.path.append(path)
-    
-    os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
-    
-    from django.core.wsgi import get_wsgi_application
-    from whitenoise.django import DjangoWhiteNoise
-    application = DjangoWhiteNoise(get_wsgi_application())
-    
+```python
+import os
+import sys
+
+path = '/home/<your-username>/my-first-blog'  # itt a saját felhasználónevedet használd!
+if path not in sys.path:
+    sys.path.append(path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
+
+from django.core.wsgi import get_wsgi_application
+from whitenoise.django import DjangoWhiteNoise
+application = DjangoWhiteNoise(get_wsgi_application())
+```
 
 > **Megjegyzés** Ne felejtsd el a saját felhasználóneveddel helyettesíteni a `<your-username>`-et!
 
