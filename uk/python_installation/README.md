@@ -21,23 +21,30 @@ Python для Windows можна завантажити з сайту https://ww
 Цілком ймовірно, що у вас вже є Python встановлений разом із системою. Щоб перевірити це (а заодно й версію), відкрийте консоль і наберіть наступну команду:
 
     $ python3 --version
-    Python 3.4.3
+    Python 3.4.2
     
 
 Якщо Python не встановлено або ви бажаєте встановити іншу версію, то можете виконати встановлення наступним чином:
 
-#### Ubuntu
+#### Debian або Ubuntu
 
 Наберіть наступну команду в консолі:
 
-    sudo apt-get install python3.4
+    $ sudo apt-get install python3.4
     
 
-#### Fedora
+#### Fedora (<=21)
 
 Скористайтеся наступною командою в консолі:
 
-    sudo yum install python3.4
+    $ sudo yum install python3.4
+    
+
+#### Fedora (22+)
+
+Скористайтеся наступною командою в консолі:
+
+    $ sudo dnf install python3.4
     
 
 ### OS X
@@ -51,7 +58,7 @@ Python для Windows можна завантажити з сайту https://ww
 Підтвердіть, що інсталяція пройшла успішно відкривши програму *Terminal* і запустивши команду `python3`:
 
     $ python3 --version
-    Python 3.4.3
+    Python 3.4.2
     
 
 * * *
